@@ -1,0 +1,11 @@
+public class TerrapizzaPage {
+    public static final String URL = "https://terrapizza.by/";
+    public static final String BTN_MENU = "/html/body/div[2]/div[1]/div[1]/div[2]/ul/li[1]/a";
+    public static final String BTN_PIZZA = "/html/body/div[3]/div[1]/div/div/div/div[3]/div/div[1]/div/div/div[9]/a";
+    public static final String BTN_CHOOSE_PIZZA = "//*[@id=\"menu-card-364\"]";
+    public static final String BTN_CART = "//*[@id=\"modal-product-content\"]/div/div[2]/div[3]/div[2]/div[2]/button";
+    public static final String BTN_CLOSE = "//*[@id=\"modal-product-content\"]/button";
+    public static final String PRODUCT_NAME = "//*[@id=\"basket-el-0\"]/div[2]/div[1]/div[1]";
+    public static final String BTN_CHECK_CART = "/html/body/div[2]/div[1]/div[3]/div[2]/div[1]/div[1]";
+
+}
