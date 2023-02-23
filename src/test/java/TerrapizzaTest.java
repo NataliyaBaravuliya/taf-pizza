@@ -17,7 +17,7 @@ import java.time.Duration;
             driver = new ChromeDriver();
             driver.get(TerrapizzaPage.URL);
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
 
         @Test
@@ -28,15 +28,32 @@ import java.time.Duration;
             driver.findElement(By.xpath(TerrapizzaPage.BTN_CART)).click();
             driver.findElement(By.xpath(TerrapizzaPage.BTN_CLOSE)).click();
             driver.findElement(By.xpath(TerrapizzaPage.BTN_CHECK_CART)).click();
-
-
-            WebElement textProductName = driver.findElement(By.xpath(TerrapizzaPage.PRODUCT_NAME));
+            WebElement textProductName = driver.findElement(By.xpath(TerrapizzaPage.PRODUCT_PIZZA));
             Assert.assertEquals("Пицца Маргарита Классическая 32 см", textProductName.getText());
         }
 
-        @After
-        public void tearDown() {
-            driver.quit();
+        @Test
+        public void testPizzaBarsToGo() {
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_MENU)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_PIZZA)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_CHOOSE_PIZZA)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_CART)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_CLOSE)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_BAR)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_RICH)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_CART_RICH)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_CLOSE)).click();
+            driver.findElement(By.xpath(TerrapizzaPage.BTN_CHECK_CART)).click();
+            WebElement textProductPizza = driver.findElement(By.xpath(TerrapizzaPage.PRODUCT_PIZZA));
+            Assert.assertEquals("Пицца Маргарита Классическая 32 см", textProductPizza.getText());
+            WebElement textProductNameRich = driver.findElement(By.xpath(TerrapizzaPage.PRODUCT_RICH));
+            Assert.assertEquals("Сок \"Rich\" вишня (Россия)", textProductNameRich.getText());
+
         }
+
+      //  @After
+      //  public void tearDown() {
+      //      driver.quit();
+      //  }
     }
 
